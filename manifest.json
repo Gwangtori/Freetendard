@@ -1,0 +1,17 @@
+{
+  "name": "Freetendard",
+  "description": "이상한 명조체, 손글씨가 꼴받아서 만들었습니다.",
+  "version": "1.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "main.html",
+    "default_icon": "logo.png"
+  },
+  "content_scripts": [
+      {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["content.js"]
+    }
+  ],
+  "permissions": ["activeTab"]
+}
