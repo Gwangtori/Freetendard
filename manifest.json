@@ -1,17 +1,29 @@
 {
-  "name": "Freetendard",
-  "description": "이상한 명조체, 손글씨가 꼴받아서 만들었습니다.",
-  "version": "1.0",
   "manifest_version": 3,
+  "name": "Freetendard",
+  "version": "1.0",
+  "description": "도메인별로 Pretendard 폰트를 적용하거나 끌 수 있는 크롬 확장 프로그램",
+  "permissions": ["storage", "tabs"],
   "action": {
-    "default_popup": "main.html",
-    "default_icon": "logo.png"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "logo.png",
+      "48": "logo.png",
+      "128": "logo.png"
+    }
+  },
+  "icons": {
+    "16": "logo.png",
+    "48": "logo.png",
+    "128": "logo.png"
   },
   "content_scripts": [
-      {
-      "matches": ["http://*/*", "https://*/*"],
+    {
+      "matches": ["<all_urls>"],
       "js": ["content.js"]
     }
   ],
-  "permissions": ["activeTab"]
+  "background": {
+    "service_worker": "background.js"
+  }
 }

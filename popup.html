@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Freetendard Toggle</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 16px;
+      width: 320px;
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f9f9f9;
+      color: #222;
+    }
+
+    h1 {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 12px;
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .title {
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 50px;
+      height: 28px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: 0.4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #4CAF50;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(22px);
+    }
+
+    .status {
+      font-size: 13px;
+      color: #555;
+      text-align: right;
+      margin-bottom: 12px;
+    }
+
+    .domain-list {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #666;
+    }
+
+    .domain-list ul {
+      padding-left: 20px;
+      margin: 4px 0 10px;
+    }
+
+    .reset-btn {
+      width: 100%;
+      padding: 8px;
+      background-color: #ff5e5e;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .reset-btn:hover {
+      background-color: #e64949;
+    }
+  </style>
+</head>
+<body>
+  <h1>Freetendard</h1>
+
+  <div class="container">
+    <div class="title" id="domainLabel">로딩 중...</div>
+    <label class="switch">
+      <input type="checkbox" id="toggleCheckbox">
+      <span class="slider"></span>
+    </label>
+  </div>
+  <div class="status" id="toggleLabel">상태: ...</div>
+
+  <div class="domain-list">
+    <strong>적용 꺼진 도메인:</strong>
+    <ul id="offDomainList">
+      <li>로딩 중...</li>
+    </ul>
+  
+    <div style="display: flex; gap: 6px; margin-bottom: 8px;">
+      <input type="text" id="addDomainInput" placeholder="예: example.com" style="flex: 1; padding: 4px;">
+      <button id="addDomainBtn">추가</button>
+    </div>
+  
+    <button class="reset-btn" id="resetBtn">모든 설정 초기화</button>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
